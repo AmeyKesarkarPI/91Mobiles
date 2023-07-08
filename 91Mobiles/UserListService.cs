@@ -23,9 +23,15 @@ namespace _91Mobiles
             };
         }
 
-        public bool ValidateUserLogin(string username, string password)
+        public Dictionary<string,object> ValidateUserLogin(string username, string password)
         {
-            return UserList.Where(x => x.UserName == username && x.Password == password).Any();
+            Dictionary<string, object> CommonResponse = new Dictionary<string, object>
+            {
+                { "IsSuccess", UserList.Where(x => x.UserName == username && x.Password == password).Any() },
+                { "UserType", UserList.Where(y => y.UserName == username && y.Password == password).Select(x => x.TypeID).FirstOrDefault() }
+            };
+
+            return CommonResponse;
         }
     }
 }

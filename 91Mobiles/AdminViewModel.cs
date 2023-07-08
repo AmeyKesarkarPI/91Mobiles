@@ -3,10 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace _91Mobiles
 {
-    internal class AdminViewModel
+    public class AdminViewModel : BaseWindowViewModel
     {
+        public ICommand ViewProductsButton { get; set; }
+        public ICommand AddProductsButton { get; set;}
+
+        public MainViewModel MainViewModel { get; set; }
+
+        public AdminViewModel(MainViewModel mainViewModel)
+        {
+            MainViewModel = mainViewModel;
+            ViewProductsButton = new RelayCommand(ViewProductsAction);
+            AddProductsButton = new RelayCommand(AddProductsAction);
+        }
+
+        public void AddProductsAction()
+        {
+            MainViewModel.ActiveView = new AddProductsViewModel(MainViewModel);
+            MainViewModel.OnPropertyChanged(nameof(MainViewModel.ActiveView));
+        }
+
+        public void ViewProductsAction()
+        {
+            MainViewModel.ActiveView = new ViewAllProductsViewModel(MainViewModel);
+            MainViewModel.OnPropertyChanged(nameof(MainViewModel.ActiveView));
+        }
     }
 }

@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace _91Mobiles
 {
-    public class UserViewModel
+    public class UserViewModel : BaseWindowViewModel
     {
+        public MainViewModel MainViewModel { get; set; }
 
+        public UserViewModel(MainViewModel mainViewModel)
+        {
+            MainViewModel = mainViewModel;
+        }
     }
 }

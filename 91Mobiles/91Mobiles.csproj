@@ -55,6 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddProductsView.xaml.cs">
+      <DependentUpon>AddProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddProductsViewModel.cs" />
+    <Compile Include="AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminViewModel.cs" />
     <Compile Include="GuestViewModel.cs" />
     <Compile Include="IUserListService.cs" />
@@ -62,7 +69,26 @@
     <Compile Include="User.cs" />
     <Compile Include="UserListService.cs" />
     <Compile Include="91MobileRegistry.cs" />
+    <Compile Include="UserLoginView.xaml.cs">
+      <DependentUpon>UserLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserLoginViewModel.cs" />
+    <Compile Include="UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserViewModel.cs" />
+    <Compile Include="ViewAllProductsView.xaml.cs">
+      <DependentUpon>ViewAllProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAllProductsViewModel.cs" />
+    <Page Include="AddProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +104,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAllProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mobile.cs" />

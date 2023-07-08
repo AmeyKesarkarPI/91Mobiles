@@ -8,6 +8,6 @@ namespace _91Mobiles
 {
     public interface IUserListService
     {
-        bool ValidateUserLogin(string username, string password);
+        Dictionary<string,object> ValidateUserLogin(string username, string password);
     }
 }
