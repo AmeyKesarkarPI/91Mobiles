@@ -8,16 +8,35 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label Content="Available Mobiles"
+            <StackPanel Orientation="Horizontal">
+
+                <Label Content="Available Mobiles"
                    FontSize="20"
                    FontWeight="Bold"
                    Margin="25,10">
 
-            </Label>
-            <Grid>
-                <!--<ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                </Label>
+                <Button Content="&lt;Logout"
+                        Margin="1200,0,0,0"
+                    FontSize="20"
+                    Background="#023047"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Height="35"
+                    Width="100"
+                    Command="{Binding LogoutButton}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <StackPanel>
+                <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              Margin="20,0">-->
+                              Margin="20,0">
 
                     <ItemsControl ItemsSource="{Binding MobilesList}">
                         <ItemsControl.ItemsPanel>
@@ -27,60 +46,92 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Height="350"
-                                    Width="300"
-                                    Margin="10"
-                                    Background="LightBlue">
-                                    <Image Source="{Binding ImageUri}"
+                                <Grid>
+
+                                    <Border Height="351"
+                                        Width="301"
+                                            BorderBrush="LightGray"
+                                        BorderThickness="1">
+
+                                    </Border>
+                                    <StackPanel Height="350"
+                                            Width="300"
+                                            Margin="10"
+                                            VerticalAlignment="Bottom">
+                                        <StackPanel HorizontalAlignment="Center"
+                                            Visibility="{Binding StackVisibility, UpdateSourceTrigger=PropertyChanged}">
+
+                                            <Image Source="{Binding ImageUri}"
                                    Height="200"
                                    Width="240"
                                    Margin="0,10">
+                                            </Image>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="60,20,0,0">
+                                                <Label Content="{Binding BrandName}"
+                                                       FontSize="17"></Label>
+                                                <Label Content="{Binding ModelName}"
+                                                       FontSize="17"></Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Margin="60,0,0,0">
+                                                <Label Content="Rs."
+                                                       FontWeight="Bold"
+                                                       FontSize="17"></Label>
+                                                <Label Content="{Binding Price}"
+                                                       FontWeight="Bold"
+                                                       FontSize="17"></Label>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel  Height="265"
+                                                 Width="300"
+                                                 Margin="0,20"
+                                                 Visibility="{Binding DetailsStackVisibility, UpdateSourceTrigger=PropertyChanged}">
+                                            <ItemsControl ItemsSource="{Binding Specifications}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Vertical"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal"
+                                                                HorizontalAlignment="Center"
+                                                                Margin="0,10">
+                                                            <Label Content="{Binding Key}" 
+                                                               FontSize="17"
+                                                               FontWeight="SemiBold"
+                                                           Height="30">
 
-                                    </Image>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl><ItemsControl ItemsSource="{Binding MobilesList}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Height="350"
-                                    Width="300"
-                                    Margin="10"
-                                    Background="LightBlue">
-                                    <Image Source="{Binding ImageUri}"
-                                   Height="200"
-                                   Width="240"
-                                   Margin="0,10">
+                                                            </Label>
+                                                            <Label Content="{Binding Value}"
+                                                               FontSize="17"
+                                                               FontWeight="SemiBold"
+                                                           Height="30">
 
-                                    </Image>
-                                </StackPanel>
+                                                            </Label>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+
+                                                </ItemsControl.ItemTemplate>
+
+                                            </ItemsControl>
+                                        </StackPanel>
+                                        <Button Content="View Details"
+                                            Margin="0,14,0,0"
+                                            FontSize="17"
+                                            Height="30"
+                                            Background="LightGray"
+                                            BorderThickness="0"
+                                        Command="{Binding ViewDetailsButton}">
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                <!--</ScrollViewer>-->
-                <Button Content=">"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Background="LightGray"
-                        Opacity="0.6"
-                        HorizontalAlignment="Right"
-                        Height="60"
-                        Width="60"
-                        Command="{Binding NextProductButton}">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="30">
-
-                            </Setter>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </Grid>
+                </ScrollViewer>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>
