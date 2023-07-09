@@ -11,6 +11,7 @@ namespace _91Mobiles
     {
         public ICommand ViewProductsButton { get; set; }
         public ICommand AddProductsButton { get; set;}
+        public ICommand LogoutButton { get; set;}
 
         public MainViewModel MainViewModel { get; set; }
 
@@ -19,6 +20,13 @@ namespace _91Mobiles
             MainViewModel = mainViewModel;
             ViewProductsButton = new RelayCommand(ViewProductsAction);
             AddProductsButton = new RelayCommand(AddProductsAction);
+            LogoutButton = new RelayCommand(LogoutAction);
+        }
+
+        private void LogoutAction()
+        {
+            MainViewModel.ActiveView = new UserLoginViewModel(MainViewModel);
+            MainViewModel.OnPropertyChanged(nameof(MainViewModel.ActiveView));
         }
 
         public void AddProductsAction()

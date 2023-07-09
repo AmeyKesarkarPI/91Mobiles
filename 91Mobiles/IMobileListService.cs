@@ -10,5 +10,7 @@ namespace _91Mobiles
     public interface IMobileListService
     {
         ObservableCollection<Mobile> GetMobileList(MainViewModel mainViewModel);
+
+        void AddNewMobile(Mobile mobile);
     }
 }

@@ -6,19 +6,20 @@
              xmlns:local="clr-namespace:_91Mobiles"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <Grid Margin="0,20">
-            <Border Height="50"
+    <Grid>
+        <StackPanel Height="400">
+            <Grid Margin="0,20">
+                <Border Height="50"
                     Width="150"
                     Background="White"
                     BorderThickness="1"
                     BorderBrush="LightGray"
                     CornerRadius="5">
-                <Border.Effect>
-                    <DropShadowEffect Color="LightGray" ShadowDepth="5"/>
-                </Border.Effect>
-            </Border>
-            <Button Content="View Products"
+                    <Border.Effect>
+                        <DropShadowEffect Color="LightGray" ShadowDepth="5"/>
+                    </Border.Effect>
+                </Border>
+                <Button Content="View Products"
                     Height="40"
                     Width="140"
                     FontSize="20"
@@ -26,25 +27,25 @@
                     BorderThickness="0"
                     Background="White"
                     Command="{Binding ViewProductsButton}">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
-        <Grid Margin="0,20">
-            <Border Height="50"
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+            <Grid Margin="0,20">
+                <Border Height="50"
                     Width="150"
                     Background="White"
                     BorderThickness="1"
                     BorderBrush="LightGray"
                     CornerRadius="5">
-                <Border.Effect>
-                    <DropShadowEffect Color="LightGray" ShadowDepth="5"/>
-                </Border.Effect>
-            </Border>
-            <Button Content="Add Products"
+                    <Border.Effect>
+                        <DropShadowEffect Color="LightGray" ShadowDepth="5"/>
+                    </Border.Effect>
+                </Border>
+                <Button Content="Add Products"
                     Height="40"
                     Width="140"
                     FontSize="20"
@@ -52,12 +53,41 @@
                     Background="White"
                     BorderThickness="0"
                     Command="{Binding AddProductsButton}">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Grid>
-    </StackPanel>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+            <Grid Margin="0,30">
+                <Border Height="40"
+                    Width="110"
+                    Background="#023047"
+                    CornerRadius="5"
+                    BorderBrush="LightGray"
+                    BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Color="LightGray" ShadowDepth="5"/>
+                    </Border.Effect>
+                </Border>
+                <Button Content="&lt;Logout"
+                    FontSize="20"
+                    Background="#023047"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Height="35"
+                    Width="100"
+                    Command="{Binding LogoutButton}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
 </UserControl>

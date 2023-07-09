@@ -18,7 +18,7 @@ namespace _91Mobiles
         public string BrandName { get;set; }
         public long Price { get; set; }
         public string ImageUri { get; set; }
-        public Dictionary<string,string> Specifications { get; set; }
+        public ObservableCollection<Specification> Specifications { get; set; }
 
         public Mobile(MainViewModel mainViewModel)
         {

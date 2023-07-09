@@ -9,9 +9,11 @@ namespace _91Mobiles
 {
     public class MobileListService : IMobileListService
     {
+        public ObservableCollection<Mobile> MobilesList { get; set; }
+
         public ObservableCollection<Mobile> GetMobileList(MainViewModel mainViewModel)
         {
-            ObservableCollection<Mobile> MobilesList = new ObservableCollection<Mobile>()
+            MobilesList = new ObservableCollection<Mobile>()
             {
                 new Mobile(mainViewModel){ MobileID = 1, BrandName = "IPhone", ModelName = "13", Price = 80000, ImageUri = "C:/Users/Amey.Kesarkar/source/repos/91Mobiles/91Mobiles/images/iphone13.jpg"},
                 new Mobile(mainViewModel){ MobileID = 2, BrandName = "IPhone", ModelName = "14", Price = 100000, ImageUri = "C:/Users/Amey.Kesarkar/source/repos/91Mobiles/91Mobiles/images/iphone14.png"},
@@ -24,6 +26,11 @@ namespace _91Mobiles
             };
 
             return MobilesList;
+        }
+
+        public void AddNewMobile(Mobile mobile)
+        {
+            MobilesList.Add(mobile);
         }
     }
 }
