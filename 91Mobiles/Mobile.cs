@@ -43,6 +43,19 @@ namespace _91Mobiles
 
         private Visibility detailsStackVisibility { get; set; } = Visibility.Collapsed;
 
+        public string ButtonContent
+        {
+            get
+            {
+                return buttonContent;
+            }
+            set
+            {
+                buttonContent = value;
+            }
+        }
+        public string buttonContent { get; set; } = "View Details";
+
         public ICommand DeleteProductButton { get; set; }
         public ICommand ViewDetailsButton { get; set; }
         public int MobileID { get; set; }
@@ -65,14 +78,18 @@ namespace _91Mobiles
             {
                 DetailsStackVisibility = Visibility.Collapsed;
                 StackVisibility = Visibility.Visible;
-            }else
+                ButtonContent = "View Details";
+            }
+            else
             {
                 DetailsStackVisibility = Visibility.Visible;
                 StackVisibility = Visibility.Collapsed;
+                ButtonContent = "Back";
             }
 
             OnPropertyChanged(nameof(DetailsStackVisibility));
             OnPropertyChanged(nameof(StackVisibility));
+            OnPropertyChanged(nameof(ButtonContent));
         }
 
         public void DeleteProductAction()

@@ -117,7 +117,7 @@
 
                                             </ItemsControl>
                                         </StackPanel>
-                                        <Button Content="View Details"
+                                        <Button Content="{Binding ButtonContent}"
                                             Margin="0,14,0,0"
                                             FontSize="17"
                                             Height="30"
